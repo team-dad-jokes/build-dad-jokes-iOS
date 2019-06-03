@@ -16,6 +16,9 @@
 		42C59C1822A594F300BA023C /* JokesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C1722A594F300BA023C /* JokesTableViewController.swift */; };
 		42C59C1A22A5950700BA023C /* JokeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C1922A5950700BA023C /* JokeDetailViewController.swift */; };
 		42C59C1D22A5B9EA00BA023C /* AppearenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C1C22A5B9EA00BA023C /* AppearenceHelper.swift */; };
+		42C59C1F22A5D4FD00BA023C /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C1E22A5D4FD00BA023C /* Bearer.swift */; };
+		42C59C2122A5D52200BA023C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C2022A5D52200BA023C /* User.swift */; };
+		42C59C2322A5D98900BA023C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C2222A5D98900BA023C /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		42C59C1722A594F300BA023C /* JokesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesTableViewController.swift; sourceTree = "<group>"; };
 		42C59C1922A5950700BA023C /* JokeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailViewController.swift; sourceTree = "<group>"; };
 		42C59C1C22A5B9EA00BA023C /* AppearenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearenceHelper.swift; sourceTree = "<group>"; };
+		42C59C1E22A5D4FD00BA023C /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		42C59C2022A5D52200BA023C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		42C59C2222A5D98900BA023C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,8 @@
 		42C59C1322A588ED00BA023C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42C59C2022A5D52200BA023C /* User.swift */,
+				42C59C1E22A5D4FD00BA023C /* Bearer.swift */,
 				42C59C1122A588E900BA023C /* DadJoke.swift */,
 			);
 			path = Model;
@@ -95,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				42C59C1722A594F300BA023C /* JokesTableViewController.swift */,
+				42C59C2222A5D98900BA023C /* LoginViewController.swift */,
 				42C59C1922A5950700BA023C /* JokeDetailViewController.swift */,
 			);
 			path = "View Controllers";
@@ -171,9 +180,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C59C2322A5D98900BA023C /* LoginViewController.swift in Sources */,
 				42C59C1822A594F300BA023C /* JokesTableViewController.swift in Sources */,
 				42C59C1D22A5B9EA00BA023C /* AppearenceHelper.swift in Sources */,
 				42C59C1A22A5950700BA023C /* JokeDetailViewController.swift in Sources */,
+				42C59C1F22A5D4FD00BA023C /* Bearer.swift in Sources */,
+				42C59C2122A5D52200BA023C /* User.swift in Sources */,
 				42C59C1222A588E900BA023C /* DadJoke.swift in Sources */,
 				42C59C1522A5895900BA023C /* JokeController.swift in Sources */,
 				42C59C0022A5837100BA023C /* AppDelegate.swift in Sources */,

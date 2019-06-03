@@ -21,6 +21,26 @@ class JokesTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @IBAction func segmentedControlChange(_ sender: Any) {
+        if segmentedControl.selectedSegmentIndex == 1 {
+            //check if there is a token
+            //if yes filter for premium jokes
+            //if no token, segueway to login screen.
+            
+            performSegue(withIdentifier: "LoginSegue", sender: self)
+            
+            
+        } else if segmentedControl.selectedSegmentIndex == 0 {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
 
 
@@ -62,5 +82,6 @@ class JokesTableViewController: UITableViewController {
         }
     }
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     var jokeController = JokeController()
 }
