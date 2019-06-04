@@ -17,6 +17,7 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         headerView.backgroundColor = AppearanceHelper.specialBlue
         let font = UIFont.boldSystemFont(ofSize: 20)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        self.tableView.tableFooterView = UIView() // eliminates blank table-cells at bottom of page
 
     }
 
@@ -29,7 +30,7 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        jokeController.resetArray()
+        jokeController.resetArray() // also jokeController.loadFromPersistentStore
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
     
         jokeController.filterArray(searchTerm: searchTerm.lowercased())
@@ -42,6 +43,8 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBAction func segmentedControlChange(_ sender: Any) {
         jokeController.resetArray()
+        
+        // jokeController = JokeController()
         
         if segmentedControl.selectedSegmentIndex == 1 {
             //check if there is a token
@@ -99,10 +102,14 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         if editingStyle == .delete {
             jokeController.deleteJoke(joke: jokeController.jokes[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+        } /*else if editingStyle == .insert {
+            jokeController.createJoke(with: jokeController.jokes[indexPath.row])
+            tableView.indexp
+        } */
     }
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var jokeController = JokeController()
     
     @IBOutlet weak var headerView: UIView!

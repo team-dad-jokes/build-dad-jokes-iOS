@@ -165,42 +165,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="?  ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="raq-DO-2Se">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="raq-DO-2Se">
                                 <rect key="frame" x="8" y="148" width="398" height="165"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="LFw-ms-o5J"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <color key="textColor" red="0.246068645" green="1" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
                                 <rect key="frame" x="158.5" y="321" width="97" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <state key="normal" title="Get Joke"/>
+                                <state key="normal" title="Get Joke">
+                                    <color key="titleColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="getJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="lXw-wb-0JK"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-rz-kia">
+                                <rect key="frame" x="8" y="422" width="398" height="238"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-R7-AWH">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="165"/>
+                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="165" id="tTY-0b-6Jp"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2265701296" green="0.31492173540000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Qw-6bs">
+                                        <rect key="frame" x="0.0" y="193" width="398" height="45"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <size key="titleShadowOffset" width="2" height="2"/>
+                                        <state key="normal" title="Create Joke">
+                                            <color key="titleColor" red="0.246068645" green="1" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="SzU-bB-AtK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="raq-DO-2Se" firstAttribute="top" secondItem="bgv-Hg-T2F" secondAttribute="top" constant="8" id="1ad-Is-92q"/>
+                            <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="lSs-rz-kia" secondAttribute="trailing" constant="8" id="3vo-C7-Ml3"/>
                             <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="raq-DO-2Se" secondAttribute="trailing" constant="8" id="5AF-32-CoN"/>
                             <constraint firstItem="raq-DO-2Se" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="69E-rb-a8l"/>
                             <constraint firstItem="SNj-hv-BHF" firstAttribute="top" secondItem="raq-DO-2Se" secondAttribute="bottom" constant="8" id="8v1-B9-atl"/>
+                            <constraint firstItem="lSs-rz-kia" firstAttribute="top" secondItem="SNj-hv-BHF" secondAttribute="bottom" constant="60" id="DaW-nu-Ebg"/>
+                            <constraint firstItem="lSs-rz-kia" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="IEk-wH-r4i"/>
                             <constraint firstItem="SNj-hv-BHF" firstAttribute="centerX" secondItem="vVr-zs-Wkh" secondAttribute="centerX" id="heE-Lw-bya"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>
                     </view>
                     <navigationItem key="navigationItem" id="f3y-F4-514">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="SJ2-0S-pQl">
+                            <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="saveJokeButtonTapped:" destination="qMR-Vp-QvJ" id="ATr-E5-Lhw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createTextView" destination="dsM-R7-AWH" id="nWv-7G-Qee"/>
                         <outlet property="getJokeButton" destination="SNj-hv-BHF" id="6hH-e9-J1N"/>
                         <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
                     </connections>
