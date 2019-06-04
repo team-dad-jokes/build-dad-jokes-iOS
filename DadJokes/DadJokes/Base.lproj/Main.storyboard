@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q3q-zJ-ynT">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Dad Jokes-->
+        <scene sceneID="wQs-BR-lrc">
+            <objects>
+                <tableViewController id="8Hn-Wo-Gbl" customClass="JokesTableViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qbU-bI-lOR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="8Ex-M5-LWI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sau-nX-4Jh">
+                                    <rect key="frame" x="0.0" y="8" width="414" height="92"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tj5-dp-DSZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
+                                            <segments>
+                                                <segment title="Free Jokes"/>
+                                                <segment title="Premium Jokes"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentedControlChange:" destination="8Hn-Wo-Gbl" eventType="valueChanged" id="jnF-La-HuI"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <searchBar contentMode="redraw" verticalHuggingPriority="249" placeholder="Filter / Search" translatesAutoresizingMaskIntoConstraints="NO" id="laM-wa-aLo">
+                                            <rect key="frame" x="0.0" y="36" width="414" height="56"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Sau-nX-4Jh" firstAttribute="top" secondItem="8Ex-M5-LWI" secondAttribute="top" constant="8" id="1sw-L4-vMj"/>
+                                <constraint firstAttribute="trailing" secondItem="Sau-nX-4Jh" secondAttribute="trailing" id="JIm-z5-U1p"/>
+                                <constraint firstAttribute="bottom" secondItem="Sau-nX-4Jh" secondAttribute="bottom" constant="8" id="KIm-4A-UZq"/>
+                                <constraint firstItem="Sau-nX-4Jh" firstAttribute="leading" secondItem="8Ex-M5-LWI" secondAttribute="leading" id="xbx-Cf-3ve"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JokeCell" textLabel="Yhd-nL-zK6" rowHeight="60" style="IBUITableViewCellStyleDefault" id="iaD-2x-NzN">
+                                <rect key="frame" x="0.0" y="136" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iaD-2x-NzN" id="0jM-uD-ZUC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yhd-nL-zK6">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qMR-Vp-QvJ" kind="show" identifier="DetailSegue" id="G0c-Kg-DcR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8Hn-Wo-Gbl" id="Mma-gn-GhO"/>
+                            <outlet property="delegate" destination="8Hn-Wo-Gbl" id="0gA-fH-YN9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Dad Jokes" id="AVP-8g-592">
+                        <barButtonItem key="rightBarButtonItem" title="New Jokes" id="UY6-4E-GXj">
+                            <connections>
+                                <segue destination="qMR-Vp-QvJ" kind="show" identifier="AddSegue" id="Fd5-4B-K10"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="headerView" destination="8Ex-M5-LWI" id="bo5-gJ-nwH"/>
+                        <outlet property="searchBar" destination="laM-wa-aLo" id="gTl-RF-9dK"/>
+                        <outlet property="segmentedControl" destination="Tj5-dp-DSZ" id="4rc-nU-QJ0"/>
+                        <segue destination="ERr-Gx-UZc" kind="show" identifier="LoginSegue" id="DCw-Rf-Ze1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xs-G1-J7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028.985507246377" y="185.49107142857142"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="8Ks-YI-GHI">
+            <objects>
+                <viewController id="ERr-Gx-UZc" customClass="LoginViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PfF-wV-Cdn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-vS-ZPq">
+                                <rect key="frame" x="16" y="180" width="382" height="199"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="67z-xQ-ekt">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
+                                        <segments>
+                                            <segment title="Sign Up"/>
+                                            <segment title="Log In"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="signInTypeChanged:" destination="ERr-Gx-UZc" eventType="valueChanged" id="wKz-kP-FJa"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-jj-aaH">
+                                        <rect key="frame" x="0.0" y="55" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2N-vG-pV8">
+                                        <rect key="frame" x="0.0" y="112" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qP-6D-iDc">
+                                        <rect key="frame" x="0.0" y="169" width="382" height="30"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="authenticate:" destination="ERr-Gx-UZc" eventType="touchUpInside" id="SlS-Ih-1dw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c0c-El-am4" firstAttribute="trailing" secondItem="0Kz-vS-ZPq" secondAttribute="trailing" constant="16" id="IoF-5N-lde"/>
+                            <constraint firstItem="0Kz-vS-ZPq" firstAttribute="top" secondItem="c0c-El-am4" secondAttribute="top" constant="40" id="r1P-n6-JQL"/>
+                            <constraint firstItem="0Kz-vS-ZPq" firstAttribute="centerX" secondItem="PfF-wV-Cdn" secondAttribute="centerX" id="zjW-Yz-jdz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c0c-El-am4"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="67z-xQ-ekt" id="FZV-NK-cXx"/>
+                        <outlet property="passwordTextField" destination="p2N-vG-pV8" id="T39-Xs-GJd"/>
+                        <outlet property="signInButton" destination="9qP-6D-iDc" id="U8Z-Zc-ovx"/>
+                        <outlet property="usernameTextField" destination="IpU-jj-aaH" id="Q2o-tj-gDp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7t-Xw-HpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="-494"/>
+        </scene>
+        <!--Joke Detail View Controller-->
+        <scene sceneID="Awi-Kr-Sti">
+            <objects>
+                <viewController id="qMR-Vp-QvJ" customClass="JokeDetailViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vVr-zs-Wkh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="?  ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="raq-DO-2Se">
+                                <rect key="frame" x="8" y="148" width="398" height="165"/>
+                                <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="LFw-ms-o5J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
+                                <rect key="frame" x="158.5" y="321" width="97" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="Get Joke"/>
+                                <connections>
+                                    <action selector="getJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="lXw-wb-0JK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="raq-DO-2Se" firstAttribute="top" secondItem="bgv-Hg-T2F" secondAttribute="top" constant="8" id="1ad-Is-92q"/>
+                            <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="raq-DO-2Se" secondAttribute="trailing" constant="8" id="5AF-32-CoN"/>
+                            <constraint firstItem="raq-DO-2Se" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="69E-rb-a8l"/>
+                            <constraint firstItem="SNj-hv-BHF" firstAttribute="top" secondItem="raq-DO-2Se" secondAttribute="bottom" constant="8" id="8v1-B9-atl"/>
+                            <constraint firstItem="SNj-hv-BHF" firstAttribute="centerX" secondItem="vVr-zs-Wkh" secondAttribute="centerX" id="heE-Lw-bya"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f3y-F4-514">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SJ2-0S-pQl">
+                            <connections>
+                                <action selector="saveJokeButtonTapped:" destination="qMR-Vp-QvJ" id="ATr-E5-Lhw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="getJokeButton" destination="SNj-hv-BHF" id="6hH-e9-J1N"/>
+                        <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEJ-8r-8Dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iHm-QA-EpT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q3q-zJ-ynT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="a57-De-Dje">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Hn-Wo-Gbl" kind="relationship" relationship="rootViewController" id="PQi-Gy-qzn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9N-F5-Wv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="185"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="G0c-Kg-DcR"/>
+    </inferredMetricsTieBreakers>
+</document>
