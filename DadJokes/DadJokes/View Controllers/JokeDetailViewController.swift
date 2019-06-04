@@ -44,9 +44,20 @@ class JokeDetailViewController: UIViewController {
 
             self.navigationController?.popViewController(animated: true)
         
-        
     }
     
+    @IBAction func createJokeButtonTapped(_ sender: Any) {
+
+        guard let createdJoke = createTextView.text, !createdJoke.isEmpty else { return }
+        jokeController?.createJoke(with: createdJoke)
+
+        self.navigationController?.popViewController(animated: true)
+
+    }
+    
+    // footer table view which eliminatew empty spaces.
+    // snazzy up the tqble-view black and white
+    // dribble.com for inspiration.
   
     
     // MARK: - Properties
@@ -55,6 +66,8 @@ class JokeDetailViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var getJokeButton: UIButton!
+    @IBOutlet var createTextView: UITextView!
+    
     
     var joke: DadJoke? {
         didSet {
