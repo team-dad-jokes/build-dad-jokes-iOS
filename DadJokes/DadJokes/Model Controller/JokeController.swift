@@ -13,6 +13,7 @@ class JokeController {
     var jokes: [DadJoke] = []
     var joke: DadJoke?
     var bearer: Bearer?
+    var searchArray: [DadJoke] = []
     
     let baseURL = URL(string: "https://icanhazdadjoke.com/")!
     
@@ -153,6 +154,15 @@ class JokeController {
                 return
             }
             }.resume()
+    }
+    
+    func filterArray(searchTerm: String) -> [DadJoke] {
+        searchArray = jokes.filter({ $0.joke.lowercased().contains(searchTerm) })
+        return searchArray
+    }
+    
+    func resetArray() {
+        loadFromPersistentStore()
     }
     
     //CRUD methods

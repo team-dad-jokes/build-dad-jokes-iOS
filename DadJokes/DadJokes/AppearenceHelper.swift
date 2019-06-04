@@ -12,7 +12,7 @@ import Foundation
 enum AppearanceHelper {
     
     static var floridaOrange = UIColor(red: 216.0/255.0, green: 137.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-    static var backgroundBlue = UIColor(red: 8.0/255.0, green: 0.0/255.0, blue: 254.0/255.0, alpha: 1.0)
+   static var specialBlue = UIColor(red: 40.0/255.0, green: 40.0/255.0, blue: 200.0/255.0, alpha: 1.0)
     static var customGreen = UIColor(red: 8.0/255.0, green: 200.0/255.0, blue: 8.0/255.0, alpha: 1.0)
     
     static func customFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
@@ -21,9 +21,13 @@ enum AppearanceHelper {
     }
     
     static func setColorAppearance() {
-//        UISegmentedControl.appearance().tintColor = floridaOrange
-        UINavigationBar.appearance().backgroundColor = backgroundBlue
+        UISegmentedControl.appearance().tintColor = floridaOrange
+//        UISegmentedControl.titleTextAttributes(for: UISegmentedControl) = textAttributes
+      
+        UINavigationBar.appearance().backgroundColor = specialBlue
         UIButton.appearance().tintColor = customGreen
+        
+       
         
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: floridaOrange, NSAttributedString.Key.font: customFont(with: .title1, pointSize: 35)]

@@ -8,21 +8,41 @@
 
 import UIKit
 
-class JokesTableViewController: UITableViewController {
+class JokesTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
        
+        searchBar.delegate = self
+        headerView.backgroundColor = AppearanceHelper.specialBlue
+        let font = UIFont.boldSystemFont(ofSize: 20)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        jokeController.resetArray()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        jokeController.resetArray()
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+    
+        jokeController.filterArray(searchTerm: searchTerm.lowercased())
+        jokeController.jokes = jokeController.searchArray
+        tableView.reloadData()
+        searchBar.text = ""
+        
+    }
+    
+    
     @IBAction func segmentedControlChange(_ sender: Any) {
+        jokeController.resetArray()
+        
         if segmentedControl.selectedSegmentIndex == 1 {
             //check if there is a token
             //if yes filter for premium jokes
@@ -84,4 +104,8 @@ class JokesTableViewController: UITableViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var jokeController = JokeController()
+    
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
 }
