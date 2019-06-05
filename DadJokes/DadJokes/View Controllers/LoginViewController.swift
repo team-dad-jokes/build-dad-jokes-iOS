@@ -57,23 +57,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         case .signUp:
             
-            jokeController?.signUp(with: username, password: password, completion: { (error) in
-                
-                if let error = error {
-                    NSLog("Error signing up: \(error)")
-                } else {
-                    DispatchQueue.main.async {
-                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
-                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertController.addAction(alertAction)
-                        self.present(alertController, animated: true, completion: {
-                            self.signInType = .logIn
-                            self.loginTypeSegmentedControl.selectedSegmentIndex = 1
-                            self.signInButton.setTitle("Sign In", for: .normal)
-                        })
-                    }
-                }
-            })
+            print("not using signUp right now")
+            
+//            jokeController?.signUp(with: username, password: password, completion: { (error) in
+//
+//                if let error = error {
+//                    NSLog("Error signing up: \(error)")
+//                } else {
+//                    DispatchQueue.main.async {
+//                        let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
+//                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                        alertController.addAction(alertAction)
+//                        self.present(alertController, animated: true, completion: {
+//                            self.signInType = .logIn
+//                            self.loginTypeSegmentedControl.selectedSegmentIndex = 1
+//                            self.signInButton.setTitle("Sign In", for: .normal)
+//                        })
+//                    }
+//                }
+//            })
             
         case .logIn:
             

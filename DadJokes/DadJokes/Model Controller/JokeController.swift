@@ -11,6 +11,7 @@ import Foundation
 class JokeController {
     
     var jokes: [DadJoke] = []
+    var privateJokes: [DadJoke] = []
     var joke: DadJoke?
     var bearer: Bearer?
     var searchArray: [DadJoke] = []
@@ -19,6 +20,7 @@ class JokeController {
     
     init() {
         loadFromPersistentStore()
+        loadFromPrivatePersistentStore()
     }
     
     func fetchJoke(completion: @escaping (Error?) -> Void) {
@@ -55,56 +57,70 @@ class JokeController {
         
     }
     
-    func signUp(with username: String, password: String, completion: @escaping (Error?) -> Void) {
-        
-        let requestURL = baseURL.appendingPathComponent("users/signup")
-        
-        var request = URLRequest(url: requestURL)
-        
-        request.httpMethod = HTTPMethod.post.rawValue
-        
-        // The body of our request is JSON.
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let user = User(username: username, password: password)
-        
-        do {
-            request.httpBody = try JSONEncoder().encode(user)
-        } catch {
-            NSLog("Error encoding User: \(error)")
-            completion(error)
-            return
-        }
-        
-        URLSession.shared.dataTask(with: request) { (_, response, error) in
-            
-            if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-                
-                // Something went wrong
-                completion(NSError())
-                return
-            }
-            
-            if let error = error {
-                NSLog("Error signing up: \(error)")
-                completion(error)
-                return
-            }
-            
-            completion(nil)
-            }.resume()
-    }
+//    func signUp(with username: String, password: String, completion: @escaping (Error?) -> Void) {
+//
+//        let requestURL = signinURL
+//
+//
+//        //var request = URLRequest(url: requestURL)
+//
+//        request.httpMethod = HTTPMethod.post.rawValue
+//
+//        // The body of our request is JSON.
+//        request.setValue("application/json", forHTTPHeaderField: "Accept")
+//
+//        let user = User(username: username, password: password)
+//
+//        // Base64( usernamepassword) hash
+//
+//
+//
+//        do {
+//            request.httpBody = try JSONEncoder().encode(user)
+//        } catch {
+//            NSLog("Error encoding User: \(error)")
+//            completion(error)
+//            return
+//        }
+//
+//        URLSession.shared.dataTask(with: request) { (_, response, error) in
+//
+//            if let response = response as? HTTPURLResponse,
+//                response.statusCode != 200 {
+//
+//                // Something went wrong
+//                completion(NSError())
+//                return
+//            }
+//
+//            if let error = error {
+//                NSLog("Error signing up: \(error)")
+//                completion(error)
+//                return
+//            }
+//
+//            completion(nil)
+//            }.resume()
+//    }
+    
+    // login = adminpassword
     
     func logIn(with username: String, password: String, completion: @escaping (Error?) -> Void) {
-        let requestURL = baseURL.appendingPathComponent("users/login")
+        
+        let requestURL = signinURL
+        // Content-Type: "application/x-
+        
+        let addOnStuff = "grant_type=password&username= \(username)&password=\(password)"
+        //let headerStuff = "Basic " + \(BASE64(dadjoke-client:lambda-secret) + "Content-Type" + "application/x-www-form-urlencoded"
         
         var request = URLRequest(url: requestURL)
         
-        request.httpMethod = HTTPMethod.post.rawValue
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //request.httpMethod = HTTPMethod.post.rawValue
         
         // The body of our request is JSON.
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        //request.setValue("application/json", forHTTPHeaderField: "Accept")
         
         let user = User(username: username, password: password)
         
@@ -161,8 +177,17 @@ class JokeController {
         return searchArray
     }
     
+    func filterPrivateArray(searchTerm: String) -> [DadJoke] {
+        searchArray = privateJokes.filter({ $0.joke.lowercased().contains(searchTerm) })
+        return searchArray
+    }
+    
     func resetArray() {
         loadFromPersistentStore()
+    }
+    
+    func resetPrivateArray() {
+        loadFromPrivatePersistentStore()
     }
     
     //CRUD methods
@@ -174,11 +199,25 @@ class JokeController {
         saveToPersisentStore()
     }
     
+    func createPrivateJoke(with joke:String) {
+        let joke = DadJoke(joke: joke)
+        privateJokes.append(joke)
+        
+        saveToPrivatePersisentStore()
+    }
+    
     func deleteJoke(joke: DadJoke) {
         guard let index = jokes.firstIndex(of: joke) else { return }
         jokes.remove(at: index)
         
         saveToPersisentStore()
+    }
+    
+    func deletePrivateJoke(joke: DadJoke) {
+        guard let index = privateJokes.firstIndex(of: joke) else { return }
+        privateJokes.remove(at: index)
+        
+        saveToPrivatePersisentStore()
     }
     
     
@@ -189,12 +228,32 @@ class JokeController {
         saveToPersisentStore()
     }
     
+    func updatePrivate(joke: DadJoke, with newJoke: String) {
+        guard let index = privateJokes.firstIndex(of: joke) else { return }
+        privateJokes[index].joke = newJoke
+        
+        saveToPrivatePersisentStore()
+    }
+    
     func saveToPersisentStore() {
         guard let url = jokesURL else {return}
         
         do {
             let encoder = PropertyListEncoder()
             let jokesData = try encoder.encode(jokes)
+            try jokesData.write(to: url)
+        } catch {
+            print("error savings joke(s?): \(error)")
+        }
+        
+    }
+    
+    func saveToPrivatePersisentStore() {
+        guard let url = jokesPrivateURL else {return}
+        
+        do {
+            let encoder = PropertyListEncoder()
+            let jokesData = try encoder.encode(privateJokes)
             try jokesData.write(to: url)
         } catch {
             print("error savings joke(s?): \(error)")
@@ -218,6 +277,23 @@ class JokeController {
         }
     }
     
+    func loadFromPrivatePersistentStore() {
+        
+        let fileManager = FileManager.default
+        guard let url = jokesPrivateURL, fileManager.fileExists(atPath: url.path) else { return}
+        
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            let decodeJokes = try decoder.decode([DadJoke].self, from: data)
+            privateJokes = decodeJokes
+        } catch {
+            print("error loading data from disk \(error)")
+        }
+    }
+    
+    private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
    
     private var jokesURL: URL? {
         let fileManager = FileManager.default
@@ -226,6 +302,15 @@ class JokeController {
         }
         print("Documents: \(documents.path)")
         return documents.appendingPathComponent("jokes.plist")
+    }
+    
+    private var jokesPrivateURL: URL? {
+        let fileManager = FileManager.default
+        guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        print("Documents: \(documents.path)")
+        return documents.appendingPathComponent("privateJokes.plist")
     }
     
 }
