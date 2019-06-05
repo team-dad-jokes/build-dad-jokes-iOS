@@ -79,6 +79,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         case .logIn:
             
+
+                navigationController?.popViewController(animated: true)
+            
             jokeController?.logIn(with: username, password: password, completion: { (error) in
                 if let error = error {
                     NSLog("Error logging in: \(error)")

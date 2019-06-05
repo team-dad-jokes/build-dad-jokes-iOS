@@ -17,7 +17,8 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         //headerView.backgroundColor = AppearanceHelper.specialBlue  why do our Nav-areas have different color than searchbar and segcontrol background colors if color is same?
         let font = UIFont.boldSystemFont(ofSize: 20)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-        self.tableView.tableFooterView = UIView() // eliminates blank table-cells at bottom of page
+        
+        //self.tableView.tableFooterView = UIView() // eliminates blank table-cells at bottom of page
 
     }
 

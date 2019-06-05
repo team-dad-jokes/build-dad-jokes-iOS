@@ -28,7 +28,7 @@ class JokeDetailViewController: UIViewController {
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 
                 createTextView.isHidden = true
-                createJokeButton.isHidden = true
+                getNewJokeButton.isHidden = true
             }
         } else {
             
@@ -54,7 +54,9 @@ class JokeDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func getJokeTabPressed(_ sender: Any) {
+
+ // place here
+    @IBAction func getJokeButtonPressed(_ sender: Any) {
     
         jokeController?.fetchJoke(completion: { (error) in
             if let error = error {
@@ -91,6 +93,7 @@ class JokeDetailViewController: UIViewController {
         
     }
     
+    @IBOutlet var getNewJokeButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var saveJokeButton: UIButton!
     @IBOutlet var createTextView: UITextView!

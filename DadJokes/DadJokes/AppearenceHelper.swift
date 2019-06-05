@@ -13,7 +13,7 @@ enum AppearanceHelper {
     
     static var floridaOrange = UIColor(red: 216.0/255.0, green: 137.0/255.0, blue: 0.0/255.0, alpha: 1.0)
    static var specialBlue = UIColor(red: 40.0/255.0, green: 40.0/255.0, blue: 200.0/255.0, alpha: 1.0)
-    static var customGreen = UIColor(red: 8.0/255.0, green: 200.0/255.0, blue: 8.0/255.0, alpha: 1.0)
+    static var customGreen = UIColor(red: 50.0/255.0, green: 50.0/255.0, blue: 240.0/255.0, alpha: 1.0)
     
     static func customFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
         let font = UIFont(name: "Chalkduster", size: pointSize)!
@@ -25,14 +25,21 @@ enum AppearanceHelper {
 //        UISegmentedControl.titleTextAttributes(for: UISegmentedControl) = textAttributes
       
         UINavigationBar.appearance().backgroundColor = specialBlue
+        
+        UIButton.appearance().clipsToBounds = true
         UIButton.appearance().tintColor = customGreen
+        UIButton.appearance().layer.borderWidth = 1
+        UIButton.appearance().layer.borderColor = UIColor.black.cgColor
+        UIButton.appearance().layer.cornerRadius = 16
         
        
         
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: floridaOrange, NSAttributedString.Key.font: customFont(with: .title1, pointSize: 35)]
+        
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
         UISearchBar.appearance().barTintColor = floridaOrange
+        
         //UIView.appearance().backgroundColor = backgroundBlue
         // can't seem to make my UIView background color backgroundBlue! WTF?
 
