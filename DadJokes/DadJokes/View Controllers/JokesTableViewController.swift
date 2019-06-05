@@ -14,7 +14,7 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
        
         searchBar.delegate = self
-        headerView.backgroundColor = AppearanceHelper.specialBlue
+        //headerView.backgroundColor = AppearanceHelper.specialBlue  why do our Nav-areas have different color than searchbar and segcontrol background colors if color is same?
         let font = UIFont.boldSystemFont(ofSize: 20)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         self.tableView.tableFooterView = UIView() // eliminates blank table-cells at bottom of page
@@ -107,6 +107,28 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             tableView.indexp
         } */
     }
+    
+//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+//
+//        var editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+//            tableView.isEditing = false
+//
+//            print("call edit crud func")
+//        }
+//
+//        editAction.backgroundColor = UIColor.blue
+//
+//
+//        var deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+//            tableView.isEditing = false
+//            self.jokeController.deleteJoke(joke: self.jokeController.jokes[indexPath.row])
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//
+//        return [deleteAction, editAction]
+//    }
+    
+    
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     

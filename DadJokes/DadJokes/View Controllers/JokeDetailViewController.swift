@@ -10,17 +10,32 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
     
     func updateViews() {
         guard let dadJoke = joke else { return }
         DispatchQueue.main.async {
             self.textView.text = dadJoke.joke
+            
+            
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let _ = joke {  // if our joke variable is fed from PrepareForSegue, hide buttons for read-only
+            updateViews()
+            getJokeButton.isHidden = true
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            
+            createTextView.isHidden = true
+            createJokeButton.isHidden = true
+            
+            
+        }
+        
+        
     }
 
   
@@ -62,11 +77,18 @@ class JokeDetailViewController: UIViewController {
     
     // MARK: - Properties
    
-    
+    func editJoke() {
+        print("EDIT TEXT VIEW TOUCHED")
+        jokeController?.createJoke(with: textView.text)
+        //editJoke()
+        
+    }
     
     @IBOutlet weak var textView: UITextView!
+
     @IBOutlet weak var getJokeButton: UIButton!
     @IBOutlet var createTextView: UITextView!
+    @IBOutlet var createJokeButton: UIButton!
     
     
     var joke: DadJoke? {
