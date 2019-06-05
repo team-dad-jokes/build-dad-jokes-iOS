@@ -14,14 +14,13 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
        
         searchBar.delegate = self
-        headerView.backgroundColor = AppearanceHelper.specialBlue
         let font = UIFont.boldSystemFont(ofSize: 20)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        jokeController.resetArray()
+        jokeController.loadFromPersistentStore()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -29,19 +28,18 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        jokeController.resetArray()
+        jokeController.loadFromPersistentStore()
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
     
         jokeController.filterArray(searchTerm: searchTerm.lowercased())
         jokeController.jokes = jokeController.searchArray
         tableView.reloadData()
         searchBar.text = ""
-        
     }
     
     
     @IBAction func segmentedControlChange(_ sender: Any) {
-        jokeController.resetArray()
+        jokeController.loadFromPersistentStore()
         
         if segmentedControl.selectedSegmentIndex == 1 {
             //check if there is a token

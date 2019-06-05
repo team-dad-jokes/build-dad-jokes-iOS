@@ -10,10 +10,13 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let _ = joke {
+            updateViews()
+            getJokeButton.isHidden = true
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
     }
     
     func updateViews() {
@@ -52,6 +55,7 @@ class JokeDetailViewController: UIViewController {
     // MARK: - Properties
    
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var getJokeButton: UIButton!
