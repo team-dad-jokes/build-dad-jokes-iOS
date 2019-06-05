@@ -42,7 +42,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.792156862745098" green="0.78823529411764703" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Sau-nX-4Jh" firstAttribute="top" secondItem="8Ex-M5-LWI" secondAttribute="top" constant="8" id="1sw-L4-vMj"/>
                                 <constraint firstAttribute="trailing" secondItem="Sau-nX-4Jh" secondAttribute="trailing" id="JIm-z5-U1p"/>
@@ -236,6 +236,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createJokeButton" destination="B41-Qw-6bs" id="0eX-nf-ioT"/>
                         <outlet property="createTextView" destination="dsM-R7-AWH" id="nWv-7G-Qee"/>
                         <outlet property="getJokeButton" destination="SNj-hv-BHF" id="6hH-e9-J1N"/>
                         <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
