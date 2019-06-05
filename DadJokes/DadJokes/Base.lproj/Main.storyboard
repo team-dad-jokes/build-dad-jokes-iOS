@@ -172,18 +172,18 @@
                                     <constraint firstAttribute="height" constant="165" id="LFw-ms-o5J"/>
                                 </constraints>
                                 <color key="textColor" red="0.246068645" green="1" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
-                                <rect key="frame" x="158.5" y="321" width="97" height="41"/>
+                                <rect key="frame" x="147.5" y="321" width="119" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <state key="normal" title="Get Joke">
+                                <state key="normal" title="Save Joke!">
                                     <color key="titleColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="getJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="lXw-wb-0JK"/>
+                                    <action selector="saveButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="hWv-Lp-LA0"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-rz-kia">
@@ -196,7 +196,7 @@
                                             <constraint firstAttribute="height" constant="165" id="tTY-0b-6Jp"/>
                                         </constraints>
                                         <color key="textColor" red="0.2265701296" green="0.31492173540000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Qw-6bs">
@@ -228,17 +228,17 @@
                         <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>
                     </view>
                     <navigationItem key="navigationItem" id="f3y-F4-514">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SJ2-0S-pQl">
+                        <barButtonItem key="rightBarButtonItem" title="Get a New Joke!" id="SJ2-0S-pQl">
                             <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="saveJokeButtonTapped:" destination="qMR-Vp-QvJ" id="ATr-E5-Lhw"/>
+                                <action selector="getJokeTabPressed:" destination="qMR-Vp-QvJ" id="rfw-Vz-h9M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="createJokeButton" destination="B41-Qw-6bs" id="0eX-nf-ioT"/>
                         <outlet property="createTextView" destination="dsM-R7-AWH" id="nWv-7G-Qee"/>
-                        <outlet property="getJokeButton" destination="SNj-hv-BHF" id="6hH-e9-J1N"/>
+                        <outlet property="saveJokeButton" destination="SNj-hv-BHF" id="zoo-fe-UiF"/>
                         <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
                     </connections>
                 </viewController>
