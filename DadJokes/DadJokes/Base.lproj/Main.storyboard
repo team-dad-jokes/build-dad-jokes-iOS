@@ -233,7 +233,6 @@
                             <constraint firstItem="lSs-rz-kia" firstAttribute="top" secondItem="SNj-hv-BHF" secondAttribute="bottom" constant="60" id="DaW-nu-Ebg"/>
                             <constraint firstItem="lSs-rz-kia" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="IEk-wH-r4i"/>
                             <constraint firstItem="SNj-hv-BHF" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="Kee-zH-9zL"/>
-                            <constraint firstItem="SNj-hv-BHF" firstAttribute="centerX" secondItem="vVr-zs-Wkh" secondAttribute="centerX" id="heE-Lw-bya"/>
                             <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="SNj-hv-BHF" secondAttribute="trailing" constant="8" id="znX-jU-Cq2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>

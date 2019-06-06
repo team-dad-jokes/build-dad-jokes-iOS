@@ -39,8 +39,8 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             jokeController.resetArray() // also jokeController.loadFromPersistentStore
             guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
             
-            jokeController.filterArray(searchTerm: searchTerm.lowercased())
-            jokeController.jokes = jokeController.searchArray
+            jokeController.jokes = jokeController.filterArray(searchTerm: searchTerm.lowercased())
+
             tableView.reloadData()
             searchBar.text = ""
             
@@ -48,8 +48,8 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             jokeController.resetPrivateArray() // also jokeController.loadFromPersistentStore
             guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
             
-            jokeController.filterPrivateArray(searchTerm: searchTerm.lowercased())
-            jokeController.privateJokes = jokeController.searchArray
+            jokeController.privateJokes = jokeController.filterPrivateArray(searchTerm: searchTerm.lowercased())
+
             tableView.reloadData()
             searchBar.text = ""
         }
