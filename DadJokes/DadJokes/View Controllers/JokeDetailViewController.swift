@@ -10,6 +10,12 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setAppearance()
+    }
+    
     func updateViews() {
         guard let dadJoke = joke else { return }
         DispatchQueue.main.async {
@@ -36,6 +42,28 @@ class JokeDetailViewController: UIViewController {
             saveJokeButton.isHidden = true
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
+    }
+    
+    func setAppearance() {
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.borderWidth = 1
+        textView.backgroundColor = .white
+        textView.layer.cornerRadius = 16
+        
+        createTextView.layer.borderColor = UIColor.black.cgColor
+        createTextView.layer.borderWidth = 1
+        createTextView.backgroundColor = .white
+        createTextView.layer.cornerRadius = 16
+        
+        saveJokeButton.layer.borderWidth = 1
+        saveJokeButton.layer.borderColor = UIColor.black.cgColor
+        saveJokeButton.layer.cornerRadius = 12
+        saveJokeButton.backgroundColor = .white
+        
+        createJokeButton.layer.borderWidth = 1
+        createJokeButton.layer.borderColor = UIColor.black.cgColor
+        createJokeButton.layer.cornerRadius = 12
+        createJokeButton.backgroundColor = .white
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {

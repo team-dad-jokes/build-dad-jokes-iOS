@@ -104,6 +104,7 @@ class JokeController {
 //    }
     
     // login = adminpassword
+    private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
     
     func logIn(with username: String, password: String, completion: @escaping (Error?) -> Void) {
         
@@ -115,12 +116,12 @@ class JokeController {
         
         var request = URLRequest(url: requestURL)
         
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
-        //request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = HTTPMethod.post.rawValue
         
-        // The body of our request is JSON.
-        //request.setValue("application/json", forHTTPHeaderField: "Accept")
+        //The body of our request is JSON.
+//        request.setValue(Basic ${btoa("dadjoke-client: lambda-secret"), forHTTPHeaderField: "Authorization")
         
         let user = User(username: username, password: password)
         
@@ -293,7 +294,6 @@ class JokeController {
         }
     }
     
-    private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
    
     private var jokesURL: URL? {
         let fileManager = FileManager.default
