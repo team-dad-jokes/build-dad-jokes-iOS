@@ -27,11 +27,14 @@ class JokeDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if isFree == true {
+            createTextView.isHidden = true
+            createJokeButton.isHidden = true
             
             if let _ = joke {  // if our joke variable is fed from PrepareForSegue, hide buttons for read-only
                 updateViews()
 
-                navigationItem.rightBarButtonItem?.isEnabled = false
+                navigationItem.rightBarButtonItem = nil
+                
                 
                 createTextView.isHidden = true
                 createJokeButton.isHidden = true

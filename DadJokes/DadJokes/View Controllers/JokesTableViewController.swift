@@ -23,6 +23,9 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
+        if UserDefaults.standard.object(forKey: "bearerToken") == nil {
+            segmentedControl.selectedSegmentIndex = 0
+        }
         jokeController.resetArray()
         jokeController.resetPrivateArray()
         
@@ -70,11 +73,11 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             //check if there is a token
             //guard let authenticate = bearer?.token else { return }
             
-            if jokeController.bearer == nil {
+            if UserDefaults.standard.object(forKey: "bearerToken") == nil {
                 
                 performSegue(withIdentifier: "LoginSegue", sender: self)
             } else {
-                
+                navigationItem.rightBarButtonItem?.title = "Create Joke"
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -88,6 +91,7 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             
             
         } else if segmentedControl.selectedSegmentIndex == 0 {
+            navigationItem.rightBarButtonItem?.title = "New Jokes"
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -118,9 +122,13 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             let joke = jokeController.jokes[indexPath.row]
             cell.textLabel?.text = joke.joke
         } else {
-            
+            if UserDefaults.standard.object(forKey: "bearerToken") == nil {
+                segmentedControl.selectedSegmentIndex = 0
+                tableView.reloadData()
+            } else {
             let joke = jokeController.privateJokes[indexPath.row]
             cell.textLabel?.text = joke.joke
+            }
         }
         return cell
     }

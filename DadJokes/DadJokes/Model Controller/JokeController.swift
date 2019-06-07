@@ -15,12 +15,19 @@ class JokeController {
     var joke: DadJoke?
     var bearer: Bearer?
     var searchArray: [DadJoke] = []
+    let defaults = UserDefaults.standard
     
     let baseURL = URL(string: "https://icanhazdadjoke.com/")!
     
     init() {
         loadFromPersistentStore()
         loadFromPrivatePersistentStore()
+        guard let token = defaults.object(forKey: "bearerToken") as? String else { return }
+        bearer?.token = token
+    }
+    
+    func getToken() {
+        defaults.set("success", forKey: "bearerToken")
     }
     
     func fetchJoke(completion: @escaping (Error?) -> Void) {
@@ -111,7 +118,7 @@ class JokeController {
         let requestURL = signinURL
         // Content-Type: "application/x-
         
-        let addOnStuff = "grant_type=password&username= \(username)&password=\(password)"
+//        let addOnStuff = "grant_type=password&username=\(username)&password=\(password)"
         //let headerStuff = "Basic " + \(BASE64(dadjoke-client:lambda-secret) + "Content-Type" + "application/x-www-form-urlencoded"
         
         var request = URLRequest(url: requestURL)
@@ -121,7 +128,7 @@ class JokeController {
         request.httpMethod = HTTPMethod.post.rawValue
         
         //The body of our request is JSON.
-//        request.setValue(Basic ${btoa("dadjoke-client: lambda-secret"), forHTTPHeaderField: "Authorization")
+        request.setValue("dadjoke-client: lambda-secret", forHTTPHeaderField: "Authorization")
         
         let user = User(username: username, password: password)
         
@@ -164,6 +171,7 @@ class JokeController {
                 
                 // We now have the bearer to authenticate the other requests
                 self.bearer = bearer
+                print(self.bearer!)
                 completion(nil)
             } catch {
                 NSLog("Error decoding Bearer: \(error)")

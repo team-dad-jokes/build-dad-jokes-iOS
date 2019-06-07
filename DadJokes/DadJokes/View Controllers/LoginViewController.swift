@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var signInButton: UIButton!
     
     
-    var jokeController: JokeController?
+    var jokeController = JokeController()
     var signInType: SignInType = .signUp
     
     override func viewDidLoad() {
@@ -26,13 +26,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func assignbackground(){
-//        let background = UIImage(named: "mo.png")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
-//        imageView.image = background
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
@@ -50,8 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func authenticate(_ sender: Any) {
         
-        guard let username = usernameTextField.text,
-            let password = passwordTextField.text else { return }
+//        guard let username = usernameTextField.text,
+//            let password = passwordTextField.text else { return }
         
         switch signInType {
             
@@ -78,16 +76,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //            })
             
         case .logIn:
+            
+            jokeController.getToken()
+            
             navigationController?.popViewController(animated: true)
-            jokeController?.logIn(with: username, password: password, completion: { (error) in
-                if let error = error {
-                    NSLog("Error logging in: \(error)")
-                } else {
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }
-            })
+//            jokeController.logIn(with: username, password: password, completion: { (error) in
+//                if let error = error {
+//                    NSLog("Error logging in: \(error)")
+//                } else {
+//                    DispatchQueue.main.async {
+//                        self.navigationController?.popViewController(animated: true)
+//                    }
+//                }
+//            })
         }
     }
     
