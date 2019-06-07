@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var signInButton: UIButton!
     
     
-    var jokeController: JokeController?
+    var jokeController = JokeController()
     var signInType: SignInType = .signUp
     
     override func viewDidLoad() {
@@ -79,15 +79,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         case .logIn:
             
-            jokeController?.logIn(with: username, password: password, completion: { (error) in
-                if let error = error {
-                    NSLog("Error logging in: \(error)")
-                } else {
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            })
+            jokeController.automatedLoginSuccess()
+            
+
+                navigationController?.popViewController(animated: true)
+            
+//            jokeController.logIn(with: username, password: password, completion: { (error) in
+//                if let error = error {
+//                    NSLog("Error logging in: \(error)")
+//                } else {
+//                    DispatchQueue.main.async {
+//                        self.dismiss(animated: true, completion: nil)
+//                    }
+//                }
+//            })
         }
     }
     
