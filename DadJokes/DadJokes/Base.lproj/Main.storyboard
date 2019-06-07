@@ -50,6 +50,26 @@
                                 <constraint firstItem="Sau-nX-4Jh" firstAttribute="leading" secondItem="8Ex-M5-LWI" secondAttribute="leading" id="xbx-Cf-3ve"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="GWZ-Rv-K5t">
+                            <rect key="frame" x="0.0" y="196" width="414" height="330"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shemp" translatesAutoresizingMaskIntoConstraints="NO" id="N9V-4d-fOA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="330" id="Lhi-Yt-6DR"/>
+                                        <constraint firstAttribute="width" constant="414" id="Q8N-nF-RI2"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="N9V-4d-fOA" secondAttribute="bottom" id="5jS-uk-rnc"/>
+                                <constraint firstItem="N9V-4d-fOA" firstAttribute="top" secondItem="GWZ-Rv-K5t" secondAttribute="top" id="B60-eD-nGv"/>
+                                <constraint firstAttribute="trailing" secondItem="N9V-4d-fOA" secondAttribute="trailing" id="JdX-f8-Q5J"/>
+                                <constraint firstItem="N9V-4d-fOA" firstAttribute="leading" secondItem="GWZ-Rv-K5t" secondAttribute="leading" id="WNM-F1-Dum"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JokeCell" textLabel="Yhd-nL-zK6" rowHeight="60" style="IBUITableViewCellStyleDefault" id="iaD-2x-NzN">
                                 <rect key="frame" x="0.0" y="136" width="414" height="60"/>
@@ -176,16 +196,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="raq-DO-2Se">
                                 <rect key="frame" x="8" y="148" width="398" height="165"/>
+
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="LFw-ms-o5J"/>
                                 </constraints>
+
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
+
                                 <rect key="frame" x="8" y="321" width="398" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Save Joke">
@@ -194,6 +218,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="hWv-Lp-LA0"/>
+
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-rz-kia">
@@ -223,6 +248,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+
                         <color key="backgroundColor" red="0.27843137254901962" green="0.62352941176470589" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="raq-DO-2Se" firstAttribute="top" secondItem="bgv-Hg-T2F" secondAttribute="top" constant="8" id="1ad-Is-92q"/>
@@ -234,20 +260,24 @@
                             <constraint firstItem="lSs-rz-kia" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="IEk-wH-r4i"/>
                             <constraint firstItem="SNj-hv-BHF" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="Kee-zH-9zL"/>
                             <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="SNj-hv-BHF" secondAttribute="trailing" constant="8" id="znX-jU-Cq2"/>
+
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>
                     </view>
                     <navigationItem key="navigationItem" id="f3y-F4-514">
                         <barButtonItem key="rightBarButtonItem" title="Get a New Joke!" id="SJ2-0S-pQl">
                             <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+
                             <connections>
                                 <action selector="getJokeTabPressed:" destination="qMR-Vp-QvJ" id="rfw-Vz-h9M"/>
                             </connections>
+
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="createJokeButton" destination="B41-Qw-6bs" id="0eX-nf-ioT"/>
                         <outlet property="createTextView" destination="dsM-R7-AWH" id="nWv-7G-Qee"/>
+
                         <outlet property="saveJokeButton" destination="SNj-hv-BHF" id="zoo-fe-UiF"/>
                         <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
                     </connections>
@@ -276,7 +306,9 @@
         </scene>
     </scenes>
     <resources>
+
         <image name="friendship-2817874_960_720" width="720" height="720"/>
+
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="G0c-Kg-DcR"/>

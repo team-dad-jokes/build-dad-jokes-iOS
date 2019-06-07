@@ -10,12 +10,14 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setAppearance()
     }
     
+
     func updateViews() {
         guard let dadJoke = joke else { return }
         DispatchQueue.main.async {
@@ -23,26 +25,31 @@ class JokeDetailViewController: UIViewController {
         }
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if isFree == true {
             createTextView.isHidden = true
             createJokeButton.isHidden = true
+
             
             if let _ = joke {  // if our joke variable is fed from PrepareForSegue, hide buttons for read-only
                 updateViews()
+
 
                 navigationItem.rightBarButtonItem = nil
                 
                 
                 createTextView.isHidden = true
                 createJokeButton.isHidden = true
+
             }
         } else {
             
             textView.isHidden = true
             saveJokeButton.isHidden = true
+
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
@@ -69,6 +76,7 @@ class JokeDetailViewController: UIViewController {
         createJokeButton.backgroundColor = .white
     }
 
+
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         guard let edittedJoke = textView.text, !edittedJoke.isEmpty else { return }
@@ -85,7 +93,9 @@ class JokeDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+
     @IBAction func getJokeTabPressed(_ sender: Any) {
+
     
         jokeController?.fetchJoke(completion: { (error) in
             if let error = error {
@@ -122,6 +132,7 @@ class JokeDetailViewController: UIViewController {
         
     }
     
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var saveJokeButton: UIButton!
     @IBOutlet var createTextView: UITextView!
