@@ -15,10 +15,10 @@
             <objects>
                 <tableViewController id="8Hn-Wo-Gbl" customClass="JokesTableViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qbU-bI-lOR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="8Ex-M5-LWI">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="8Ex-M5-LWI">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -42,32 +42,12 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.792156862745098" green="0.78823529411764703" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.027450980392156862" green="0.10196078431372549" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Sau-nX-4Jh" firstAttribute="top" secondItem="8Ex-M5-LWI" secondAttribute="top" constant="8" id="1sw-L4-vMj"/>
                                 <constraint firstAttribute="trailing" secondItem="Sau-nX-4Jh" secondAttribute="trailing" id="JIm-z5-U1p"/>
                                 <constraint firstAttribute="bottom" secondItem="Sau-nX-4Jh" secondAttribute="bottom" constant="8" id="KIm-4A-UZq"/>
                                 <constraint firstItem="Sau-nX-4Jh" firstAttribute="leading" secondItem="8Ex-M5-LWI" secondAttribute="leading" id="xbx-Cf-3ve"/>
-                            </constraints>
-                        </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="GWZ-Rv-K5t">
-                            <rect key="frame" x="0.0" y="196" width="414" height="330"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shemp" translatesAutoresizingMaskIntoConstraints="NO" id="N9V-4d-fOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="330" id="Lhi-Yt-6DR"/>
-                                        <constraint firstAttribute="width" constant="414" id="Q8N-nF-RI2"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="N9V-4d-fOA" secondAttribute="bottom" id="5jS-uk-rnc"/>
-                                <constraint firstItem="N9V-4d-fOA" firstAttribute="top" secondItem="GWZ-Rv-K5t" secondAttribute="top" id="B60-eD-nGv"/>
-                                <constraint firstAttribute="trailing" secondItem="N9V-4d-fOA" secondAttribute="trailing" id="JdX-f8-Q5J"/>
-                                <constraint firstItem="N9V-4d-fOA" firstAttribute="leading" secondItem="GWZ-Rv-K5t" secondAttribute="leading" id="WNM-F1-Dum"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -120,11 +100,11 @@
             <objects>
                 <viewController title="Dad Jokes" id="ERr-Gx-UZc" customClass="LoginViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PfF-wV-Cdn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-vS-ZPq">
-                                <rect key="frame" x="16" y="180" width="382" height="199"/>
+                                <rect key="frame" x="16" y="40" width="382" height="199"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="67z-xQ-ekt">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
@@ -161,7 +141,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="friendship-2817874_960_720" translatesAutoresizingMaskIntoConstraints="NO" id="YBp-5c-Js8">
-                                <rect key="frame" x="0.0" y="387" width="414" height="475"/>
+                                <rect key="frame" x="0.0" y="247" width="414" height="475"/>
                                 <color key="backgroundColor" red="0.27929785847663879" green="0.62391924858093262" blue="0.58431345224380493" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                         </subviews>
@@ -193,45 +173,40 @@
             <objects>
                 <viewController id="qMR-Vp-QvJ" customClass="JokeDetailViewController" customModule="DadJokes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vVr-zs-Wkh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="raq-DO-2Se">
-                                <rect key="frame" x="8" y="148" width="398" height="165"/>
-
-                                <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="8" y="8" width="398" height="165"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="LFw-ms-o5J"/>
                                 </constraints>
-
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
-
-                                <rect key="frame" x="8" y="321" width="398" height="32"/>
+                                <rect key="frame" x="8" y="181" width="398" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Save Joke">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.99607843137254903" green="0.81960784313725488" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="hWv-Lp-LA0"/>
-
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lSs-rz-kia">
-                                <rect key="frame" x="8" y="413" width="398" height="205"/>
+                                <rect key="frame" x="8" y="273" width="398" height="205"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-R7-AWH">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="165"/>
-                                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="165" id="tTY-0b-6Jp"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Qw-6bs">
@@ -239,7 +214,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <size key="titleShadowOffset" width="2" height="2"/>
                                         <state key="normal" title="Create Joke">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.99607843137254903" green="0.81960784313725488" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <action selector="createJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="SzU-bB-AtK"/>
@@ -248,7 +223,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-
                         <color key="backgroundColor" red="0.27843137254901962" green="0.62352941176470589" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="raq-DO-2Se" firstAttribute="top" secondItem="bgv-Hg-T2F" secondAttribute="top" constant="8" id="1ad-Is-92q"/>
@@ -260,24 +234,20 @@
                             <constraint firstItem="lSs-rz-kia" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="IEk-wH-r4i"/>
                             <constraint firstItem="SNj-hv-BHF" firstAttribute="leading" secondItem="bgv-Hg-T2F" secondAttribute="leading" constant="8" id="Kee-zH-9zL"/>
                             <constraint firstItem="bgv-Hg-T2F" firstAttribute="trailing" secondItem="SNj-hv-BHF" secondAttribute="trailing" constant="8" id="znX-jU-Cq2"/>
-
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgv-Hg-T2F"/>
                     </view>
                     <navigationItem key="navigationItem" id="f3y-F4-514">
                         <barButtonItem key="rightBarButtonItem" title="Get a New Joke!" id="SJ2-0S-pQl">
                             <color key="tintColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-
                             <connections>
                                 <action selector="getJokeTabPressed:" destination="qMR-Vp-QvJ" id="rfw-Vz-h9M"/>
                             </connections>
-
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="createJokeButton" destination="B41-Qw-6bs" id="0eX-nf-ioT"/>
                         <outlet property="createTextView" destination="dsM-R7-AWH" id="nWv-7G-Qee"/>
-
                         <outlet property="saveJokeButton" destination="SNj-hv-BHF" id="zoo-fe-UiF"/>
                         <outlet property="textView" destination="raq-DO-2Se" id="U87-ys-aUR"/>
                     </connections>
@@ -291,9 +261,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q3q-zJ-ynT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="a57-De-Dje">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="a57-De-Dje">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.027450980392156862" green="0.10196078431372549" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -306,9 +277,7 @@
         </scene>
     </scenes>
     <resources>
-
         <image name="friendship-2817874_960_720" width="720" height="720"/>
-
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="G0c-Kg-DcR"/>

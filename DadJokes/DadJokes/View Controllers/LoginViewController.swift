@@ -77,19 +77,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         case .logIn:
             
-
             jokeController.getToken()
             
             navigationController?.popViewController(animated: true)
-
 //            jokeController.logIn(with: username, password: password, completion: { (error) in
 //                if let error = error {
 //                    NSLog("Error logging in: \(error)")
 //                } else {
 //                    DispatchQueue.main.async {
-
 //                        self.navigationController?.popViewController(animated: true)
-
 //                    }
 //                }
 //            })

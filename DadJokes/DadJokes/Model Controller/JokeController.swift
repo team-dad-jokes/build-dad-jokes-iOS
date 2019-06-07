@@ -20,16 +20,13 @@ class JokeController {
     let baseURL = URL(string: "https://icanhazdadjoke.com/")!
     
     init() {
-        
         loadFromPersistentStore()
         loadFromPrivatePersistentStore()
-
         guard let token = defaults.object(forKey: "bearerToken") as? String else { return }
         bearer?.token = token
     }
     
     func getToken() {
-
         defaults.set("success", forKey: "bearerToken")
     }
     
@@ -114,7 +111,6 @@ class JokeController {
 //    }
     
     // login = adminpassword
-
     private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
     
     func logIn(with username: String, password: String, completion: @escaping (Error?) -> Void) {
@@ -133,17 +129,16 @@ class JokeController {
         
         //The body of our request is JSON.
         request.setValue("dadjoke-client: lambda-secret", forHTTPHeaderField: "Authorization")
-
         
-//        let user = User(username: username, password: password)
-//
-//        do {
-//            //request.httpBody = try JSONEncoder().encode(user)
-//        } catch {
-//            NSLog("Error encoding User: \(error)")
-//            completion(error)
-//            return
-//        }
+        let user = User(username: username, password: password)
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(user)
+        } catch {
+            NSLog("Error encoding User: \(error)")
+            completion(error)
+            return
+        }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -169,31 +164,14 @@ class JokeController {
                 return
             }
             
-            //let decoder = JSONDecoder()
-            
-            
-//            func fromBase64() -> String? {
-//                guard let data = Data(base64Encoded: self) else { return nil }
-//                return String(data: data, encoding: .utf8)
-            
-            //let bearer = try JSONDecoder.decode(Bearer.self, from: data)
-            
-            //let bearer = try Base64Encoded.utf8(Bearer.self, from: data)
-            
-            //let decodedData = data.utf8
-            
-            
-            
+            let decoder = JSONDecoder()
             
             do {
-                let bearer = try String(data: data, encoding: .utf8)
-                let x = Bearer.init(token: bearer!)
+                let bearer = try decoder.decode(Bearer.self, from: data)
                 
                 // We now have the bearer to authenticate the other requests
-
                 self.bearer = bearer
                 print(self.bearer!)
-
                 completion(nil)
             } catch {
                 NSLog("Error decoding Bearer: \(error)")
@@ -324,7 +302,6 @@ class JokeController {
         }
     }
     
-
    
     private var jokesURL: URL? {
         let fileManager = FileManager.default
@@ -351,10 +328,4 @@ enum HTTPMethod: String {
     case put = "PUT"
     case post = "Post"
     case delete = "DELETE"
-}
-
-extension String {       // Encode a String to Base64
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
 }
