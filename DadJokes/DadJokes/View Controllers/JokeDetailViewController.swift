@@ -10,6 +10,14 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setAppearance()
+    }
+    
+
     func updateViews() {
         guard let dadJoke = joke else { return }
         DispatchQueue.main.async {
@@ -17,33 +25,57 @@ class JokeDetailViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        
-        AppearanceHelper.setColorAppearance()
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         if isFree == true {
+            createTextView.isHidden = true
+            createJokeButton.isHidden = true
+
             
             if let _ = joke {  // if our joke variable is fed from PrepareForSegue, hide buttons for read-only
                 updateViews()
 
-                navigationItem.rightBarButtonItem?.isEnabled = false
+
+                navigationItem.rightBarButtonItem = nil
+                
                 
                 createTextView.isHidden = true
-                getNewJokeButton.isHidden = true
+                createJokeButton.isHidden = true
+
             }
         } else {
             
             textView.isHidden = true
             saveJokeButton.isHidden = true
-            getNewJokeButton.isHidden = true
+
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
+    
+    func setAppearance() {
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.borderWidth = 1
+        textView.backgroundColor = .white
+        textView.layer.cornerRadius = 16
+        
+        createTextView.layer.borderColor = UIColor.black.cgColor
+        createTextView.layer.borderWidth = 1
+        createTextView.backgroundColor = .white
+        createTextView.layer.cornerRadius = 16
+        
+        saveJokeButton.layer.borderWidth = 1
+        saveJokeButton.layer.borderColor = UIColor.black.cgColor
+        saveJokeButton.layer.cornerRadius = 12
+        saveJokeButton.backgroundColor = .white
+        
+        createJokeButton.layer.borderWidth = 1
+        createJokeButton.layer.borderColor = UIColor.black.cgColor
+        createJokeButton.layer.cornerRadius = 12
+        createJokeButton.backgroundColor = .white
+    }
+
 
     @IBAction func saveButtonTapped(_ sender: Any) {
         
@@ -62,8 +94,8 @@ class JokeDetailViewController: UIViewController {
     }
     
 
- // place here
-    @IBAction func getJokeButtonPressed(_ sender: Any) {
+    @IBAction func getJokeTabPressed(_ sender: Any) {
+
     
         jokeController?.fetchJoke(completion: { (error) in
             if let error = error {
@@ -100,7 +132,7 @@ class JokeDetailViewController: UIViewController {
         
     }
     
-    @IBOutlet var getNewJokeButton: UIButton!
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var saveJokeButton: UIButton!
     @IBOutlet var createTextView: UITextView!

@@ -23,15 +23,12 @@ class JokeController {
         
         loadFromPersistentStore()
         loadFromPrivatePersistentStore()
-        
-        guard let savedToken = defaults.object(forKey: "bearerToken") as? String else {return}
-        bearer?.token = savedToken
-        
-        //bearer?.token = defaultStorage(token)
-        //let shouldShowPluto = UserDefaults.standard.bool(forKey: .shouldShowPlutoKey)
+
+        guard let token = defaults.object(forKey: "bearerToken") as? String else { return }
+        bearer?.token = token
     }
     
-    func automatedLoginSuccess() {
+    func getToken() {
 
         defaults.set("success", forKey: "bearerToken")
     }
@@ -117,29 +114,26 @@ class JokeController {
 //    }
     
     // login = adminpassword
+
+    private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
     
     func logIn(with username: String, password: String, completion: @escaping (Error?) -> Void) {
         
+        let requestURL = signinURL
         // Content-Type: "application/x-
         
-        let middleURL = signinURL.appendingPathComponent("grant_type=password&username=admin&password=password")
-        
-        // let extraURLStuff = "Basicdadjoke-client:lambda-secret
-        
-        let requestURL = middleURL.appendingPathComponent("Basic " + "dadjoke-client:lambda-secret".toBase64() + "Content-Type" + "application/x-www-form-urlencoded")
-        print(requestURL)
-        
-        
-        
+//        let addOnStuff = "grant_type=password&username=\(username)&password=\(password)"
+        //let headerStuff = "Basic " + \(BASE64(dadjoke-client:lambda-secret) + "Content-Type" + "application/x-www-form-urlencoded"
         
         var request = URLRequest(url: requestURL)
         
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         request.httpMethod = HTTPMethod.post.rawValue
         
-        // The body of our request is JSON.
-        //request.setValue("application/json", forHTTPHeaderField: "Accept")
+        //The body of our request is JSON.
+        request.setValue("dadjoke-client: lambda-secret", forHTTPHeaderField: "Authorization")
+
         
 //        let user = User(username: username, password: password)
 //
@@ -196,8 +190,10 @@ class JokeController {
                 let x = Bearer.init(token: bearer!)
                 
                 // We now have the bearer to authenticate the other requests
-                self.bearer = x
-                // store bearer.token as "success"
+
+                self.bearer = bearer
+                print(self.bearer!)
+
                 completion(nil)
             } catch {
                 NSLog("Error decoding Bearer: \(error)")
@@ -328,7 +324,7 @@ class JokeController {
         }
     }
     
-    private var signinURL = URL(string: "https://dad-jokes2019.herokuapp.com/oauth/token")!
+
    
     private var jokesURL: URL? {
         let fileManager = FileManager.default
