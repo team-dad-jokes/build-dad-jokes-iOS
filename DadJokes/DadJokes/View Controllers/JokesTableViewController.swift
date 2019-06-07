@@ -71,10 +71,12 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             //check if there is a token
             //guard let authenticate = bearer?.token else { return }
             
-            if jokeController.bearer == nil {
+            if UserDefaults.standard.object(forKey: "bearerToken") == nil {
                 
                 performSegue(withIdentifier: "LoginSegue", sender: self)
             } else {
+                
+                
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -120,8 +122,14 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             cell.textLabel?.text = joke.joke
         } else {
             
+            if UserDefaults.standard.object(forKey: "bearerToken") == nil {
+                segmentedControl.selectedSegmentIndex = 0
+               tableView.reloadData()
+            } else {
+            // recheck if bearer token works, or else exit before showing table view under condition seg = 1, else set segmentedControl = 0 and reload the table view.
             let joke = jokeController.privateJokes[indexPath.row]
             cell.textLabel?.text = joke.joke
+            }
         }
         return cell
     }

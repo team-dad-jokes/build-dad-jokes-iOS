@@ -17,8 +17,14 @@ class JokeDetailViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        
+        AppearanceHelper.setColorAppearance()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         
         if isFree == true {
             
@@ -34,6 +40,7 @@ class JokeDetailViewController: UIViewController {
             
             textView.isHidden = true
             saveJokeButton.isHidden = true
+            getNewJokeButton.isHidden = true
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }

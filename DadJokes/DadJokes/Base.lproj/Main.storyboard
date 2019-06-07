@@ -196,19 +196,21 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-hv-BHF">
-                                <rect key="frame" x="147.5" y="373" width="119" height="41"/>
+                                <rect key="frame" x="170" y="373" width="74" height="30"/>
                                 <color key="backgroundColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <state key="normal" title="Save Joke!">
-                                    <color key="titleColor" red="0.246068645" green="1" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="titleShadowColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Save Joke!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="hWv-Lp-LA0"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" text="?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-R7-AWH">
-                                <rect key="frame" x="8" y="474" width="398" height="165"/>
+                                <rect key="frame" x="8" y="463" width="398" height="165"/>
                                 <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="tTY-0b-6Jp"/>
@@ -218,7 +220,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Qw-6bs">
-                                <rect key="frame" x="139.5" y="647" width="135" height="41"/>
+                                <rect key="frame" x="139.5" y="636" width="135" height="41"/>
                                 <color key="backgroundColor" red="0.88821648320000002" green="0.32062744069999999" blue="0.31437832110000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -230,7 +232,7 @@
                                     <action selector="createJokeButtonTapped:" destination="qMR-Vp-QvJ" eventType="touchUpInside" id="SzU-bB-AtK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixW-dw-IaK">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixW-dw-IaK">
                                 <rect key="frame" x="130" y="153" width="164" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.246068645" green="1" blue="0.23669699199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

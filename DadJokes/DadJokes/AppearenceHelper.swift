@@ -20,20 +20,25 @@ enum AppearanceHelper {
         return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: font) // scales the font
     }
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        UIButton.appearance().layer.cornerRadius = 16
+//    }
+    
     static func setColorAppearance() {
         UISegmentedControl.appearance().tintColor = floridaOrange
 //        UISegmentedControl.titleTextAttributes(for: UISegmentedControl) = textAttributes
       
         UINavigationBar.appearance().backgroundColor = specialBlue
+
         
         UIButton.appearance().clipsToBounds = true
+        
+        
         UIButton.appearance().tintColor = customGreen
         UIButton.appearance().layer.borderWidth = 1
         UIButton.appearance().layer.borderColor = UIColor.black.cgColor
         UIButton.appearance().layer.cornerRadius = 16
-        
-       
-        
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: floridaOrange, NSAttributedString.Key.font: customFont(with: .title1, pointSize: 35)]
         
