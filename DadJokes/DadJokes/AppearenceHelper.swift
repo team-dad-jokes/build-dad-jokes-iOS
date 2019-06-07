@@ -13,40 +13,24 @@ enum AppearanceHelper {
     
     static var floridaOrange = UIColor(red: 216.0/255.0, green: 137.0/255.0, blue: 0.0/255.0, alpha: 1.0)
    static var specialBlue = UIColor(red: 40.0/255.0, green: 40.0/255.0, blue: 200.0/255.0, alpha: 1.0)
-    static var customGreen = UIColor(red: 50.0/255.0, green: 50.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+    static var darkBlue = UIColor(red: 7.0/255.0, green: 26.0/255.0, blue: 82.0/255.0, alpha: 1.0)
+    static var customYellow = UIColor(red: 254.0/255.0, green: 209.0/255.0, blue: 88.0/255.0, alpha: 1.0)
     
     static func customFont(with textStyle: UIFont.TextStyle, pointSize: CGFloat) -> UIFont {
         let font = UIFont(name: "Chalkduster", size: pointSize)!
         return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: font) // scales the font
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        UIButton.appearance().layer.cornerRadius = 16
-//    }
-    
     static func setColorAppearance() {
-        UISegmentedControl.appearance().tintColor = floridaOrange
-//        UISegmentedControl.titleTextAttributes(for: UISegmentedControl) = textAttributes
+        
+        UISegmentedControl.appearance().tintColor = customYellow
       
-        UINavigationBar.appearance().backgroundColor = specialBlue
-
+        UIButton.appearance().tintColor = customYellow
         
-        UIButton.appearance().clipsToBounds = true
-        
-        
-        UIButton.appearance().tintColor = customGreen
-        UIButton.appearance().layer.borderWidth = 1
-        UIButton.appearance().layer.borderColor = UIColor.black.cgColor
-        UIButton.appearance().layer.cornerRadius = 16
-        
-        let textAttributes = [NSAttributedString.Key.foregroundColor: floridaOrange, NSAttributedString.Key.font: customFont(with: .title1, pointSize: 35)]
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: customFont(with: .title1, pointSize: 35)]
         UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
-        UISearchBar.appearance().barTintColor = floridaOrange
+        UISearchBar.appearance().barTintColor = customYellow
         
-        //UIView.appearance().backgroundColor = backgroundBlue
-        // can't seem to make my UIView background color backgroundBlue! WTF?
 
     }
 }

@@ -10,14 +10,12 @@ import UIKit
 
 class JokeDetailViewController: UIViewController {
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setAppearance()
     }
     
-
     func updateViews() {
         guard let dadJoke = joke else { return }
         DispatchQueue.main.async {
@@ -25,32 +23,27 @@ class JokeDetailViewController: UIViewController {
         }
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if isFree == true {
             createTextView.isHidden = true
             createJokeButton.isHidden = true
-
             
             if let _ = joke {  // if our joke variable is fed from PrepareForSegue, hide buttons for read-only
                 updateViews()
-
 
                 navigationItem.rightBarButtonItem = nil
                 
                 
                 createTextView.isHidden = true
                 createJokeButton.isHidden = true
-
             }
         } else {
             
             textView.isHidden = true
             saveJokeButton.isHidden = true
-
-            navigationItem.rightBarButtonItem?.isEnabled = false
+            navigationItem.rightBarButtonItem = nil
         }
     }
     
@@ -68,14 +61,13 @@ class JokeDetailViewController: UIViewController {
         saveJokeButton.layer.borderWidth = 1
         saveJokeButton.layer.borderColor = UIColor.black.cgColor
         saveJokeButton.layer.cornerRadius = 12
-        saveJokeButton.backgroundColor = .white
+        saveJokeButton.backgroundColor = AppearanceHelper.darkBlue
         
         createJokeButton.layer.borderWidth = 1
         createJokeButton.layer.borderColor = UIColor.black.cgColor
         createJokeButton.layer.cornerRadius = 12
-        createJokeButton.backgroundColor = .white
+        createJokeButton.backgroundColor = AppearanceHelper.darkBlue
     }
-
 
     @IBAction func saveButtonTapped(_ sender: Any) {
         
@@ -93,9 +85,7 @@ class JokeDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
     @IBAction func getJokeTabPressed(_ sender: Any) {
-
     
         jokeController?.fetchJoke(completion: { (error) in
             if let error = error {
@@ -132,7 +122,6 @@ class JokeDetailViewController: UIViewController {
         
     }
     
-
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var saveJokeButton: UIButton!
     @IBOutlet var createTextView: UITextView!

@@ -17,18 +17,15 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
         //headerView.backgroundColor = AppearanceHelper.specialBlue  why do our Nav-areas have different color than searchbar and segcontrol background colors if color is same?
         let font = UIFont.boldSystemFont(ofSize: 20)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-
         self.tableView.tableFooterView = UIView() // eliminates blank table-cells at bottom of page
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
-
         if UserDefaults.standard.object(forKey: "bearerToken") == nil {
             segmentedControl.selectedSegmentIndex = 0
         }
-
         jokeController.resetArray()
         jokeController.resetPrivateArray()
         
@@ -45,9 +42,7 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             jokeController.resetArray() // also jokeController.loadFromPersistentStore
             guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
             
-
             jokeController.jokes = jokeController.filterArray(searchTerm: searchTerm.lowercased())
-
 
             tableView.reloadData()
             searchBar.text = ""
@@ -56,14 +51,11 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             jokeController.resetPrivateArray() // also jokeController.loadFromPersistentStore
             guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
             
-
             jokeController.privateJokes = jokeController.filterPrivateArray(searchTerm: searchTerm.lowercased())
-
 
             tableView.reloadData()
             searchBar.text = ""
         }
-        
         
     }
     
@@ -84,20 +76,11 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
                 
                 performSegue(withIdentifier: "LoginSegue", sender: self)
             } else {
-
                 navigationItem.rightBarButtonItem?.title = "Create Joke"
-
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
-            
-            //if yes filter for premium jokes
-            //if no token, segueway to login screen.
-            
-            // } else {
-            //
-            
             
         } else if segmentedControl.selectedSegmentIndex == 0 {
             navigationItem.rightBarButtonItem?.title = "New Jokes"
@@ -131,12 +114,10 @@ class JokesTableViewController: UITableViewController, UISearchBarDelegate {
             let joke = jokeController.jokes[indexPath.row]
             cell.textLabel?.text = joke.joke
         } else {
-
             if UserDefaults.standard.object(forKey: "bearerToken") == nil {
                 segmentedControl.selectedSegmentIndex = 0
                 tableView.reloadData()
             } else {
-
             let joke = jokeController.privateJokes[indexPath.row]
             cell.textLabel?.text = joke.joke
             }
